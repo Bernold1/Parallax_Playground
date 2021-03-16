@@ -1,0 +1,51 @@
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 200%;
+}
+
+.parallax_layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 100vh 0;
+}
+
+//negative Z values move slower in the parallax and positives faster.
+.parallax_layer--base {
+  transform: translate3d(0, -50vh, 0);
+}
+
+//scale calculated with: 1 + (translateZ * -1) / parallax perspective size
+.parallax_layer--back {
+  transform: translate3d(50vh, -50px, -1px) scale(2);
+}
+.parallax_layer--deep {
+  //   transform: translate3d(-100vh, -50px, -3px) scale(4);
+  transform: rotate3d(20, 0, 20, 1deg);
+}
+
+.parallax_layer_RTL {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 100vh 0;
+  transform: rotate(-90deg);
+  transform-origin: center calc(50vh);
+}
+.parallax_layer--right-left {
+  transform: rotate(90deg);
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
